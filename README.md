@@ -3,7 +3,9 @@
 (Nem heti nézet csak sima felsorolás)
 
 ```bash
+# install dependencies
 npm i
-```
 
-npm run dev
+# start development mode
+npm run dev -- --open
+```
