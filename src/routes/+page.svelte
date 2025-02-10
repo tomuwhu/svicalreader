@@ -32,6 +32,7 @@ const formattime = time => time.toLocaleTimeString('hu-HU').split(":").slice(0, 
     table {
         border-collapse: collapse;
         margin: auto;
+        text-shadow: 0px 0px 2px rgb(149, 149, 149);
     }
     td, th {
         border: 1px solid black;
