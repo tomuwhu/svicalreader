@@ -17,7 +17,7 @@ const formattime = time => time.toLocaleTimeString('hu-HU').split(":").slice(0, 
         </tr>
         {#each data.events as event}
             <tr>
-                <td>{event.start.toLocaleDateString('hu-HU')}</td>
+                <td class="date">{event.start.toLocaleDateString('hu-HU')}</td>
                 <td class="right aligned">{formattime(event.start)}</td>
                 <td> - </td>
                 <td class="right aligned">{formattime(event.end)}</td>
@@ -39,6 +39,9 @@ const formattime = time => time.toLocaleTimeString('hu-HU').split(":").slice(0, 
     th {
         text-align: center;
         padding: 6px;
+    }
+    td.date {
+        padding-left: 6px;
     }
     tr:nth-child(even) {
         background-color: rgb(227, 235, 237);
