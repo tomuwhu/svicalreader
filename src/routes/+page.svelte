@@ -13,7 +13,7 @@ const { data } = $props()
         </tr>
         {#each data.events as event}
             <tr>
-                <th>{event.start.toLocaleDateString('hu-HU')}</th>
+                <td>{event.start.toLocaleDateString('hu-HU')}</td>
                 <td>{event.start.toLocaleTimeString('hu-HU')}</td>
                 <td>{event.end.toLocaleTimeString('hu-HU')}</td>
                 <td class="r text">{event.text}</td>
@@ -35,8 +35,11 @@ const { data } = $props()
         padding: 0px 10px ;
         text-align: center;
     }
+    th {
+        background-color: rgb(172, 222, 222);
+    }
     tr:nth-child(even) {
-        background-color: lightgrey;
+        background-color: rgb(227, 235, 237);
     }
     td.text {
         text-align: left;
