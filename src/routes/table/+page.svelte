@@ -45,15 +45,17 @@
     Terembeosztás táblázat
 </h1>
 <div class="ui input">
-    <input type="number" bind:value={adateobj.year} placeholder="Év" class="ev"> -
-    <input type="number" bind:value={adateobj.month} placeholder="Hónap" class="ev"> -
+    <input type="number" bind:value={adateobj.year} placeholder="Év" class="ev" min=2023 max=2025> -
+    <input type="number" bind:value={adateobj.month} placeholder="Hónap" class="ev" min=1 max=12> -
     {#each [1,2,3,4,5] as het}
         <button class="ui small blue button" onclick={() => (adateobj.week = het)}>{het}</button>
     {/each}
 </div>
 <svg width="1550" height="1500">
     {#each [0,1,2,3,4,5,6] as day}
-        <text x={90 + 220 * day} y=40>{napok[day]}</text>
+        <text x={100 + 220 * day} y=40>{napok[day]}</text>
+        <line x1={40 + 220 * day} y1=60 x2={40 + 220 * day} y2=1500 stroke="rgba(0, 30, 40, 0.6)" stroke-width="0.6"></line>
+        <line x1={220 + 220 * day} y1=60 x2={220 + 220 * day} y2=1500 stroke="rgba(0, 30, 40, 0.6)" stroke-width="0.6"></line>
     {/each}
     {#each Array.from({length: 25}).fill(0) as _, hour}
         <text y={105 + 60 * hour} x=2 stroke="red">{hour}:00</text>
@@ -66,34 +68,34 @@
         <rect
             fill="yellow"
             stroke="black"
-            x={20 + 220 * event.startdo.weekday} y=100 width=200
+            x={40 + 220 * event.startdo.weekday} y=100 width=180
             height=1398
         />
         <text 
         class="ev"
         stroke="rgb(68, 112, 112)" 
-        x={35 + 220 * event.startdo.weekday} 
+        x={50 + 220 * event.startdo.weekday} 
         y={120 + 60 * event.startto.hour + event.startto.minute}>{event.text}</text>
         <text 
         class="lo"
         stroke="rgb(168, 112, 12)"  
-        x={35 + 220 * event.startdo.weekday} 
+        x={50 + 220 * event.startdo.weekday} 
         y={120 + 60 * event.startto.hour + event.startto.minute + 15}>{event.location}</text>
         {:else}
         <rect
             fill="rgba(205, 255, 255, 0.9)"
             stroke="black"
-            x={20 + 220 * event.startdo.weekday} y={100 + 60 * event.startto.hour + event.startto.minute} width=200
+            x={40 + 220 * event.startdo.weekday} y={100 + 60 * event.startto.hour + event.startto.minute} width=180
             height={size(event)}/>
         <text 
             class="ev"
             stroke="rgb(68, 112, 112)" 
-            x={35 + 220 * event.startdo.weekday} 
+            x={50 + 220 * event.startdo.weekday} 
             y={120 + 60 * event.startto.hour + event.startto.minute}>{event.text}</text>
         <text 
             class="lo"
             stroke="rgb(168, 112, 12)"  
-            x={35 + 220 * event.startdo.weekday} 
+            x={50 + 220 * event.startdo.weekday} 
             y={120 + 60 * event.startto.hour + event.startto.minute + 15}>{event.location}</text>
         {/if}
     {/each}
@@ -125,5 +127,9 @@
         font-family: 'Times New Roman', Times, serif;
         font-size: 16px;
         text-align: center;
+    }
+    li {
+        all: unset;
+        display: block;
     }
 </style>
