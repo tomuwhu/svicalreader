@@ -64,6 +64,7 @@
         adateobj = gendateobj(adate)
     }}> &rightarrow; </button>
 </div>
+<div class="ui divider"></div>
 <svg width="1550" height="1500">
     {#each [0,1,2,3,4,5,6] as day}
         <text x={100 + 220 * day} y=40>{napok[day]}</text>
