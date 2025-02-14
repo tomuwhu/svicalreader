@@ -15,6 +15,7 @@
     const napok = ['Hétfő', 'Kedd', 'Szerda', 'Csütörtök', 'Péntek', 'Szombat', 'Vasárnap']
     const { data } = $props()
     const adate = new Date()
+    const today = new Date()
     adate.week = adate.getWeekOfMonth()
     const gendateobj = (date) => ({
         year: date.getFullYear(),
@@ -67,7 +68,10 @@
 <svg width="1550" height="1500">
     {#each [0,1,2,3,4,5,6] as day}
         <text x={100 + 220 * day} y=40>{napok[day]}</text>
-        <text x={87 + 220 * day} y=60>{nd(day)}</text>
+        <text x={87 + 220 * day} y=60 stroke={nd(day) == today.toLocaleDateString() ? "red" : "black"}>{nd(day)}</text>
+        {#if nd(day) == today.toLocaleDateString()}
+            <rect fill="rgba(220, 255, 240, 0.99)" x={40 + 220 * day} y=100 width=180 height=1598></rect>
+        {/if}
         <line x1={40 + 220 * day} y1=60 x2={40 + 220 * day} y2=1500 stroke="rgba(0, 30, 40, 0.6)" stroke-width="0.6"></line>
         <line x1={220 + 220 * day} y1=60 x2={220 + 220 * day} y2=1500 stroke="rgba(0, 30, 40, 0.6)" stroke-width="0.6"></line>
     {/each}
