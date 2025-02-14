@@ -3,7 +3,7 @@ const { data } = $props()
 const formattime = time => time.toLocaleTimeString('hu-HU').split(":").slice(0, 2).join(":")
 </script>
 <h1 class="ui block header">
-    Terembeosztás
+    Terembeosztás lista
 </h1>
 <table class="ui very basic compact table this">
     <tbody>
@@ -28,10 +28,6 @@ const formattime = time => time.toLocaleTimeString('hu-HU').split(":").slice(0, 
     </tbody>
 </table>
 <style>
-    :global body {
-        text-shadow: 0px 0px 2px rgb(149, 149, 149);
-        text-align: center;
-    }
     table.this {
         margin: auto;
         width: fit-content;

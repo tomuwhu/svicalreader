@@ -1,0 +1,15 @@
+body {
+    text-shadow: 0px 0px 2px rgb(149, 149, 149);
+    text-align: center;
+}
+menu {
+    all: unset;
+    display: block;
+    background-color: black;
+}
+h1 {
+    margin-top: 0px;
+}
+.ui.header {
+    margin-top: 0.2px;
+}
