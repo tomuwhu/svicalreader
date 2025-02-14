@@ -5,12 +5,11 @@
             , firstWeekday = new Date(year, month, 1).getDay()
             , lastDateOfMonth = new Date(year, month + 1, 0).getDate()
             , offsetDate = this.getDate() + firstWeekday - 1
-            , index = 0
-            , weeksInMonth = index + Math.ceil((lastDateOfMonth + firstWeekday - 7) / 7)
-            , week = index + Math.floor(offsetDate / 7)
+            , weeksInMonth = Math.ceil((lastDateOfMonth + firstWeekday - 7) / 7)
+            , week = Math.floor(offsetDate / 7)
         ;
-        if (exact || week < 2 + index) return week;
-        return week === weeksInMonth ? index + 5 : week;
+        if (exact || week < 2 ) return week;
+        return week === weeksInMonth ? 5 : week;
     }
     const napok = ['Hétfő', 'Kedd', 'Szerda', 'Csütörtök', 'Péntek', 'Szombat', 'Vasárnap']
     const { data } = $props()
