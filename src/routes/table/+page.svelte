@@ -46,7 +46,7 @@
 <div class="ui input">
     <input type="number" bind:value={adateobj.year} placeholder="Év" class="ev">
     <input type="number" bind:value={adateobj.month} placeholder="Hónap" class="ev">
-    <input type="number" bind:value={adateobj.week} placeholder="Hét" class="ev" min="1" max="7">
+    <input type="number" bind:value={adateobj.week} placeholder="Hét" class="ev" min="1" max="5">
 </div>
 <svg width="1800" height="1400">
     {#each fdata as event}
