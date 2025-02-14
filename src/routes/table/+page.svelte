@@ -71,6 +71,9 @@
         {#if nd(day) == today.toLocaleDateString()}
             <rect fill="rgba(220, 255, 240, 0.99)" x={40 + 220 * day} y=100 width=180 height=1598></rect>
         {/if}
+        {#if day > 4}
+            <rect fill="rgba(255, 255, 230, 0.99)" x={40 + 220 * day} y=100 width=180 height=1598></rect>
+        {/if}
         <line x1={40 + 220 * day} y1=60 x2={40 + 220 * day} y2=1500 stroke="rgba(0, 30, 40, 0.6)" stroke-width="0.6"></line>
         <line x1={220 + 220 * day} y1=60 x2={220 + 220 * day} y2=1500 stroke="rgba(0, 30, 40, 0.6)" stroke-width="0.6"></line>
     {/each}
