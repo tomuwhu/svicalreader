@@ -21,7 +21,7 @@
         month: date.getMonth() + 1,
         day: date.getDate(),
         weekday: (date.getDay() + 6) % 7,
-        week: date.getWeekOfMonth()
+        week: date.getWeekOfMonth() - 1
     })
     const gentimeobj = (date) => ({
         hour: date.getHours(),
