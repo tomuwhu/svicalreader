@@ -57,7 +57,7 @@
     <input type="number" bind:value={adateobj.year} placeholder="Év" class="ev" min=2023 max=2025> -
     <input type="number" bind:value={adateobj.month} placeholder="Hónap" class="ev" min=1 max=12> -
     {#each [1,2,3,4,5] as het}
-        <button class="ui small blue button" onclick={() => (adateobj.week = het)}>{het}</button>
+        <button class="ui small blue button {adateobj.week === het ? 'red' : ''}" onclick={() => (adateobj.week = het)}>{het}</button>
     {/each}
     <button onclick={() => {
         adate.setDate(adate.getDate() + 7)
