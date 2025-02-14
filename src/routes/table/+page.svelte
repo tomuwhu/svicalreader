@@ -40,20 +40,34 @@
         v.startdo.month === adateobj.month && 
         v.startdo.week === adateobj.week
     ))
+    const nd = (day) => {
+        var od = new Date(`${adateobj.year}-${adateobj.month}-${day - adateobj.weekday + 7 * adateobj.week}`)
+        if (od == 'Invalid Date') return ""
+        else return od.toLocaleDateString('hu-HU')
+    }
 </script>
 <h1 class="ui block header">
     Terembeosztás táblázat
 </h1>
 <div class="ui input">
+    <button onclick={() => {
+        adate.setDate(adate.getDate() - 7)
+        adateobj = gendateobj(adate)
+    }}> &leftarrow; </button>
     <input type="number" bind:value={adateobj.year} placeholder="Év" class="ev" min=2023 max=2025> -
     <input type="number" bind:value={adateobj.month} placeholder="Hónap" class="ev" min=1 max=12> -
     {#each [1,2,3,4,5] as het}
         <button class="ui small blue button" onclick={() => (adateobj.week = het)}>{het}</button>
     {/each}
+    <button onclick={() => {
+        adate.setDate(adate.getDate() + 7)
+        adateobj = gendateobj(adate)
+    }}> &rightarrow; </button>
 </div>
 <svg width="1550" height="1500">
     {#each [0,1,2,3,4,5,6] as day}
         <text x={100 + 220 * day} y=40>{napok[day]}</text>
+        <text x={87 + 220 * day} y=60>{nd(day)}</text>
         <line x1={40 + 220 * day} y1=60 x2={40 + 220 * day} y2=1500 stroke="rgba(0, 30, 40, 0.6)" stroke-width="0.6"></line>
         <line x1={220 + 220 * day} y1=60 x2={220 + 220 * day} y2=1500 stroke="rgba(0, 30, 40, 0.6)" stroke-width="0.6"></line>
     {/each}
@@ -100,6 +114,7 @@
         {/if}
     {/each}
 </svg>
+{#if false}
     <ul>
     {#each fdata as event}
         <li>{event.startdo.year}-{event.startdo.month}-{event.startdo.day}
@@ -108,6 +123,7 @@
         </li>
     {/each}
     </ul>
+{/if}
 <style>
     .ev {
         width: 86px;
